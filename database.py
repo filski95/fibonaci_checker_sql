@@ -47,7 +47,6 @@ def check_if_fib_already_computed(connection, fib):
             # try except in case no record -> [0] would not work
             cursor.execute(CHECK_FIB_DB, (fib,))
             try:
-                # _update_fib_results_counter(cursor, fib)
                 fib_from_db = cursor.fetchone()[0]
                 cursor.execute(UPDATE_FIB_RESULT_COUNTER, (fib,))  # increase the counter by 1 /// total searched.
                 return fib_from_db
